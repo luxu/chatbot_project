@@ -13,3 +13,6 @@ wheels/
 
 # Arquivos de teste temporários
 test_*.py
+
+*.sqlite3
+db/*.bin
