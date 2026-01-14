@@ -32,17 +32,17 @@ Criar um chatbot que:
 Código organizado seguindo o padrão do Django
 
 ### Escopo do Projeto:
-- Criação do projeto e app Django
-- Implementação da lógica do chatbot
-- Views simples para processamento das mensagens
-- Templates básicos, se necessário
-- Código comentado e organizado
-- Autenticação de usuários
+- [x] Criação do projeto e app Django
+- [x] Implementação da lógica do chatbot
+- [x] Views simples para processamento das mensagens
+- [x] Templates básicos, se necessário
+- [x] Código comentado e organizado
+- [] Autenticação de usuários
 
 ### Fora do Escopo
-- Integração com IA ou APIs externas
-- Banco de dados avançado
-- Processamento de linguagem natural
+- [x] Integração com IA ou APIs externas
+- [x] Banco de dados avançado
+- [] Processamento de linguagem natural
 
 ### Prazo
 - 7 dias corridos, incluindo desenvolvimento e ajustes finais.(09 a 16/01)

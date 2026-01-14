@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: var(--bs-body-bg);
+    overflow: hidden;
+}
+
+/* --- SIDEBAR --- */
+#sidebar {
+    width: 300px;
+    height: 100%;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    padding: 20px;
+    position: fixed;
+    left: -300px; /* Começa fechado */
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+.sidebar-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 50px;
+}
+
+/* --- BOTÃO TOGGLE (DINÂMICO) --- */
+#toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+    background: #3498db;
+    color: var(--bs-body-color);
+    border: none;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Quando o sidebar está ativo, movemos o botão junto com ele ou mudamos o estilo */
+#sidebar.active ~ #toggle-btn {
+    left: 240px; /* Posiciona o X dentro ou na borda do sidebar */
+    background: #e74c3c; /* Muda para vermelho quando for fechar */
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    transition: margin-left 0.3s;
+    width: 100%;
+}
+
+/* Área de Resposta */
+#response-area {
+    width: 80%;
+    max-width: 800px;
+    height: 60vh;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: none;
+    font-size: 16px;
+}
+
+/* Área de Input de Pergunta */
+.input-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #3498db;
+    color: var(--bs-body-color);
+    border: none;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* Botão para abrir o Sidebar */
+#toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+}

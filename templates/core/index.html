@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Tela de Bate-papo{% endblock title %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+    {% include 'partials/sidebar.html' %}
+
+    <button class="btn btn-outline-secondary d-flex align-items-center gap-2"
+            id="btnTema" style="margin-left: 85%;">
+        <i id="iconeTema" class="bi bi-sun-fill"></i>
+        <span id="textoTema">Alternar Tema</span>
+    </button>
+
+    <div class="chat-container">
+        <div class="chat-window">
+            <div class="message bot">
+                {% if question %}
+                <ul class="mt-4">
+                    <li>
+                        <strong>Pergunta:</strong><p id="p_question">{{ question }}</p>
+                        <strong>Resposta:</strong><p id="p_response">{{ responses }}</p>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        <footer class="chat-input-area mb-4">
+            <form action="{% url 'answer' %}" method="POST">
+                {% csrf_token %}
+                <div class="input-container">
+                    <input type="text" name="question" id="user-question"
+                           placeholder="Digite sua mensagem">
+                    <button class="btn btn-primary" type="submit">➤</button>
+                </div>
+            </form>
+        </footer>
+    </div>
+{% endblock content %}
+{% block js %}
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="{% static 'js/sidebar.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,15 @@
+<button id="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+<nav id="sidebar">
+    <div class="sidebar-form">
+        <h3>Menu</h3>
+        <a href="{% url 'index' %}">Home</a>
+        <hr style="opacity: 0.2">
+        <form method="POST" enctype="multipart/form-data" action="{% url 'upload_pdf' %}"
+            id="file-form" class="sidebar-form">
+            {% csrf_token %}
+            <input type="file" id="file-input" name="file_pdf" accept="application/pdf">
+            <button type="submit" style="background: #34495e; color: white; padding: 8px; border: none; cursor: pointer;">Enviar Arquivo</button>
+        </form>
+    </div>
+</nav>
