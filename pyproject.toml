@@ -17,6 +17,7 @@ dependencies = [
     "langchain-openai>=1.1.7",
     "pypdf>=6.6.0",
     "langchain-chroma>=1.1.0",
+    "ipdb>=0.13.13",
 ]
 
 [dependency-groups]
@@ -25,4 +26,13 @@ dev = [
     "pytest>=9.0.2",
     "pytest-django>=4.11.1",
 ]
-
+[tool.taskipy.tasks]
+startapp = "uv run python manage.py startapp"
+makemigrations = "uv run python manage.py makemigrations"
+migrate = "uv run python manage.py migrate"
+createsuperuser = "uv run python manage.py createsuperuser"
+runserver = "uv run python manage.py runserver"
+shell_plus = "uv run python manage.py shell_plus"
+showmigrations = "uv run python manage.py showmigrations"
+lint = "ruff check"
+lint_fix = "ruff check --fix"

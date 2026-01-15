@@ -102,6 +102,10 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',  # Isso faz o erro do Django usar a classe 'alert-danger' do Bootstrap
 }
 
+LOGIN_URL = "/logar/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
 # IA´s
 GEMINI_API_KEY=config("GEMINI_API_KEY")
 ANTHROPIC_API_KEY=config("ANTHROPIC_API_KEY")

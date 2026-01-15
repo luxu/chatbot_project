@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+    <div class="jumbotron">
+        <p class="text-center mt-4">
+            <img src="{% static 'img/logo.png' %}" alt="logo">
+        </p>
+        <h1 class="text-center mt-4">
+            Tela de Login
+        </h1>
+        <p class="text-center">É a primeira vez? <a href="{% url 'cadastrar' %}">Clique aqui para cadastrar</a>!</p>
+        {% if messages %}
+            <ul class="text-bg-danger">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="{% url 'logar' %}" method="post">
+            {% csrf_token %}
+            <div class="row mt-4">
+                <input name="username" type="text" class="form-control mb-4" placeholder="Usuário">
+                <input name="password" type="password" class="form-control mb-4" placeholder="Senha">
+            </div>
+            <div class="row">
+                <button class="btn btn-primary" type="submit">Confirmar</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

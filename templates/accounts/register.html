@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+    <a href="{% url 'index' %}" class="btn btn-primary">Voltar</a>
+    <p class="text-center mt-4">
+        <img src="{% static 'img/logo.png' %}" alt="logo">
+    </p>
+    <h1 class="text-center">Formulário de cadastro</h1>
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <form action="{% url 'cadastrar' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+            Usuário: <input name="username" type="text" class="form-control" placeholder="Digite seu usuário" value="{{ username }}">
+            E-mail: <input name="email" type="text" class="form-control" placeholder="Digite seu email" value="{{ email }}">
+            Senha: <input name="password" type="password" class="form-control" placeholder="Digite sua senha">
+            Confirme a senha: <input name="confirm_password" type="password" class="form-control" placeholder="Confirme sua senha">
+            <button class="btn btn-primary my-4" type="submit">Cadastrar</button>
+        </div>
+    </form>
+{% endblock content %}

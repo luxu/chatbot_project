@@ -13,12 +13,13 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 try:
     openai_api_key = config("OPENAI_API_KEY")
+    print(f"Tudo certo, chave da API OpenAI encontrada: {openai_api_key}")
 except Exception as e:
     print(f"Erro ao ler OPENAI_API_KEY usando decouple: {e}")
     raise ValueError("Chave da API OpenAI não encontrada via decouple")
 
 def path_vector_store() -> str:
-    db = Path('../db')
+    db = Path('db')
     persist_directory = str(db)
     return persist_directory
 

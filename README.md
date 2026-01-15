@@ -37,7 +37,7 @@ Código organizado seguindo o padrão do Django
 - [x] Views simples para processamento das mensagens
 - [x] Templates básicos, se necessário
 - [x] Código comentado e organizado
-- [] Autenticação de usuários
+- [x] Autenticação de usuários
 
 ### Fora do Escopo
 - [x] Integração com IA ou APIs externas

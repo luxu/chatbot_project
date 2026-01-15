@@ -4,21 +4,8 @@
 
 {% block title %}Tela de Bate-papo{% endblock title %}
 
-{% block css %}
-    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-{% endblock css %}
-
 {% block content %}
-
     {% include 'partials/sidebar.html' %}
-
-    <button class="btn btn-outline-secondary d-flex align-items-center gap-2"
-            id="btnTema" style="margin-left: 85%;">
-        <i id="iconeTema" class="bi bi-sun-fill"></i>
-        <span id="textoTema">Alternar Tema</span>
-    </button>
-
     <div class="chat-container">
         <div class="chat-window">
             <div class="message bot">
@@ -45,6 +32,5 @@
     </div>
 {% endblock content %}
 {% block js %}
-    <script src="{% static 'js/theme.js' %}"></script>
     <script src="{% static 'js/sidebar.js' %}"></script>
 {% endblock js %}
