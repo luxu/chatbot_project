@@ -59,16 +59,42 @@ Instale o gerenciador de pacotes: ``uv``
 ````bash
 https://docs.astral.sh/uv/#highlights
 ````
-Crie o ``.venv`` 
+Entre na pasta do projeto
+````code
+cd chatbot_project
+````
+
+Crie o ambiente virtual 
 ````bash
  uv venv
 ````
 
+Ative o ambiente virtual
 ````bash
- 
+WINDOWS: .venv\Scripts\activate
+LINUX/MAC: source .venv\Bin\activate
 ````
+Instalar as dependências
 ````bash
- 
+ uv sync
 ````
+Renomeie o env-sample
+````bash
+ mv env-sample .env
+````
+Rode as migrações
+````bash
+ task migrate
+````
+Criar um superuser
+````bash
+ task createsuperuser
+````
+Rodar a aplicação
+````bash
+ task runserver
+````
+
+### OBS: Para funcionamento correto da IA do OpenAI, vc deve criar uma conta no site da OpenAI e obter sua chave de API. Após, colocar a chave no arquivo ***.env**, sem isso vai dar erro.
 
 ### Estrutura preparada para futuras evoluções
