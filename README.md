@@ -51,4 +51,24 @@ Código organizado seguindo o padrão do Django
 - Código-fonte completo
 
 ### Instruções para execução do projeto
+- Clone o projeto em sua máquina
+````bash
+ git clone https://github.com/lucas-almeida-silva/chatbot-django.git
+````
+Instale o gerenciador de pacotes: ``uv``
+````bash
+https://docs.astral.sh/uv/#highlights
+````
+Crie o ``.venv`` 
+````bash
+ uv venv
+````
+
+````bash
+ 
+````
+````bash
+ 
+````
+
 ### Estrutura preparada para futuras evoluções
