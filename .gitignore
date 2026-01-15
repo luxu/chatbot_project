@@ -15,4 +15,4 @@ wheels/
 test_*.py
 
 *.sqlite3
-db/*.bin
+db
