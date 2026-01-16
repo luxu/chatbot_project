@@ -97,8 +97,6 @@ Rodar a aplicação
  task runserver
 ````
 
-
-
 ### Se for passado a chave da OPENAI, será usada a IA, caso contrário, o chatbot responderá sobre palavras-chave
 
 ### Estrutura preparada para futuras evoluções
@@ -108,3 +106,6 @@ Rodar a aplicação
 - opção de deletar o BD do PDF
 - o BD da IA ficar num banco mais parrudo, ex. postgres
 - criar testes automatizados
+
+### Vídeo de apresentação do projeto
+[Vídeo](https://youtu.be/WNx070RwZXk)
