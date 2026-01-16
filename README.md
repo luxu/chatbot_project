@@ -108,4 +108,4 @@ Rodar a aplicação
 - criar testes automatizados
 
 ### Vídeo de apresentação do projeto
-[Vídeo](https://youtu.be/WNx070RwZXk)
+<a href="https://youtu.be/WNx070RwZXk" target="_blank">Apresentação do projeto em vídeo</a>
