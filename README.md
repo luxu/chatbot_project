@@ -63,12 +63,10 @@ Entre na pasta do projeto
 ````code
 cd chatbot_project
 ````
-
 Crie o ambiente virtual 
 ````bash
  uv venv
 ````
-
 Ative o ambiente virtual
 ````bash
 WINDOWS: .venv\Scripts\activate
@@ -90,14 +88,13 @@ Criar um superuser
 ````bash
  task createsuperuser
 ````
-Rodar a aplicação
-````bash
- task runserver
-````
-
 Carregar os dados do JSON
 ````bash
  task loaddata
+````
+Rodar a aplicação
+````bash
+ task runserver
 ````
 
 
