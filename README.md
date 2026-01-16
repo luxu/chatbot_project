@@ -53,7 +53,7 @@ Código organizado seguindo o padrão do Django
 ### Instruções para execução do projeto
 - Clone o projeto em sua máquina
 ````bash
- git clone https://github.com/lucas-almeida-silva/chatbot-django.git
+ git clone https://github.com/luxu/chatbot_project.git
 ````
 Instale o gerenciador de pacotes: ``uv``
 ````bash
