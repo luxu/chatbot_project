@@ -95,6 +95,19 @@ Rodar a aplicação
  task runserver
 ````
 
-### OBS: Para funcionamento correto da IA do OpenAI, vc deve criar uma conta no site da OpenAI e obter sua chave de API. Após, colocar a chave no arquivo ***.env**, sem isso vai dar erro.
+Carregar os dados do JSON
+````bash
+ task loaddata
+````
+
+
+
+### Se for passado a chave da OPENAI, será usada a IA, caso contrário, o chatbot responderá sobre palavras-chave
 
 ### Estrutura preparada para futuras evoluções
+- logar via contas sociais(gmail, facebook, etc)
+- envio de confirmação do cadastro
+- mostrar quais PDF´s tem salvo no BD
+- opção de deletar o BD do PDF
+- o BD da IA ficar num banco mais parrudo, ex. postgres
+- criar testes automatizados

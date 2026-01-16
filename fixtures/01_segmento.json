@@ -1,0 +1,18 @@
+[
+{
+  "model": "core.bot",
+  "pk": 1,
+  "fields": {
+    "answer": "Python",
+    "response": "É uma linguagem poderosa de alto nível"
+  }
+},
+{
+  "model": "core.bot",
+  "pk": 2,
+  "fields": {
+    "answer": "Workana",
+    "response": "Plataforma mais famosa de freelancer do Brasil"
+  }
+}
+]

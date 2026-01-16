@@ -10,20 +10,12 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-
-try:
-    openai_api_key = config("OPENAI_API_KEY")
-    print(f"Tudo certo, chave da API OpenAI encontrada: {openai_api_key}")
-except Exception as e:
-    print(f"Erro ao ler OPENAI_API_KEY usando decouple: {e}")
-    raise ValueError("Chave da API OpenAI não encontrada via decouple")
-
 def path_vector_store() -> str:
     db = Path('db')
     persist_directory = str(db)
     return persist_directory
 
-def load_existing_vector_store():
+def load_existing_vector_store(openai_api_key):
     persist_directory = path_vector_store()
     embedding = OpenAIEmbeddings(
         api_key=openai_api_key
@@ -37,6 +29,12 @@ def load_existing_vector_store():
     return None
 
 def add_to_vector_store(chunks, vector_store=None):
+    try:
+        openai_api_key = config("OPENAI_API_KEY")
+        print(f"Tudo certo, chave da API OpenAI encontrada")
+    except Exception as e:
+        print(f"Erro ao ler OPENAI_API_KEY usando decouple: {e}")
+        raise ValueError("Chave da API OpenAI não encontrada via decouple")
     persist_directory = path_vector_store()
     embedding = OpenAIEmbeddings(api_key=openai_api_key)
     if vector_store:
@@ -52,7 +50,7 @@ def add_to_vector_store(chunks, vector_store=None):
         )
     return vector_store
 
-def process_pdf_to_chunks(pdf_path):
+def process_pdf_to_chunks(pdf_path, openai_api_key):
     """Quebra o PDF em partes(chunks)"""
     loader = PyPDFLoader(pdf_path)
     docs = loader.load()
@@ -64,13 +62,13 @@ def process_pdf_to_chunks(pdf_path):
         documents=docs
     )
     # chunks = text_splitter.split_text(full_text)
-    vector_store = load_existing_vector_store()
+    vector_store = load_existing_vector_store(openai_api_key)
     add_to_vector_store(
         chunks=all_chunks,
-        vector_store=vector_store
+        vector_store=vector_store,
     )
 
-def chatbot_ia(retriever, query):
+def chatbot_ia(retriever, query, openai_api_key):
     model_openai = config('MODEL_OPENAI')
     model = ChatOpenAI(
         api_key=openai_api_key,
