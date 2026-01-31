@@ -16,7 +16,7 @@ echo "Waiting for external database at ${DB_HOST}:${DB_PORT}..."
 
 # Coleta todos os arquivos estáticos para a pasta STATIC_ROOT
 echo "Collecting static files..."
-python manage.py collectstatic --no-input --clear
+#python manage.py collectstatic --no-input --clear
 echo "Static files collected."
 # --no-input: Para não pedir confirmação (essencial para scripts)
 # --clear: Para limpar a pasta de estáticos antes de copiar os novos arquivos
