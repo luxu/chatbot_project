@@ -13,20 +13,29 @@ dependencies = [
     "langchain>=1.2.3",
     "langchain-community>=0.4.1",
     "chromadb>=1.4.0",
-    "sentence-transformers>=5.2.0",
+    "torch",
+    "torchvision",
+    "sentence-transformers>=3.0.0",
     "langchain-openai>=1.1.7",
     "pypdf>=6.6.0",
     "langchain-chroma>=1.1.0",
     "ipdb>=0.13.13",
     "gunicorn>=24.1.1",
 ]
-
 [dependency-groups]
 dev = [
     "ipython>=9.9.0",
     "pytest>=9.0.2",
     "pytest-django>=4.11.1",
 ]
+# Adicione este bloco ao final do arquivo:
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
 [tool.taskipy.tasks]
 startapp = "uv run python manage.py startapp"
 makemigrations = "uv run python manage.py makemigrations"
