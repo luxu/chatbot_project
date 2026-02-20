@@ -14,6 +14,8 @@ SECRET_KEY = config("SECRET_KEY")
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -31,6 +33,7 @@ LOCAL_APPS = [
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
