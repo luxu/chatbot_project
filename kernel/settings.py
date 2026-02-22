@@ -37,6 +37,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -94,8 +95,12 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-# STATIC_ROOT = BASE_DIR / 'static'
+# Local onde o Django vai colocar todos os arquivos estáticos para o Gunicorn/Nginx servir
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Mude de 'static' para 'staticfiles'
+# Local onde você guarda seus arquivos estáticos originais de desenvolvimento
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'secondary',
