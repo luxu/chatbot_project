@@ -22,6 +22,7 @@ dependencies = [
     "ipdb>=0.13.13",
     "gunicorn>=24.1.1",
     "whitenoise>=6.11.0",
+    "psycopg2-binary>=2.9.11",
 ]
 [dependency-groups]
 dev = [
