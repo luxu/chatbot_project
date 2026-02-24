@@ -8,49 +8,25 @@ from django.db import IntegrityError
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
+from accounts.forms import CustomUserCreationForm
 from kernel import settings
+
 
 def cadastrar(request):
     template_name = 'accounts/register.html'
-    msg = ''
-    if request.method == 'GET':
-        return render(request, template_name)
-    username = request.POST.get('username')
-    if len(username) < 3:
-        msg = 'Nome de usuário deve ter pelo menos 3 caracteres.'
-        messages.error(request,msg)
-    email = request.POST.get('email')
-    if '@' not in email:
-        msg = 'Email inválido. Tente novamente.'
-        messages.error(request,msg)
-    if User.objects.filter(email=email).first():
-        msg = 'Email já cadastrado. Tente novamente.'
-        messages.error(request, msg)
-    password = request.POST.get('password')
-    confirm_password = request.POST.get('confirm_password')
-    if password != confirm_password:
-        msg = 'Senhas não coincidem. Tente novamente.'
-        messages.error(request,msg)
-    try:
-        validate_password(password, user=None)
-    except ValidationError as e:
-        msg = f"ERRO..: {e}"
-        messages.error(request, msg)
-    try:
-        user = User.objects.create_user(username=username, email=email)
-    except IntegrityError:
-        msg = "Usuário já existe. Crie outro"
-        messages.error(request, msg)
-    if len(msg) > 0:
-        context = {
-            'username': username,
-            'email': email
-        }
-        return render(request, template_name, context)
-    user.set_password(password)
-    user.save()
-    messages.success(request,'Cadastro realizado com sucesso!')
-    return redirect(reverse_lazy('index'))
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        print(form.errors)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = CustomUserCreationForm()
+    context = {
+        'form': form
+    }
+    return render(request, template_name, context)
+
 
 def logar(request):
     template_name = 'accounts/login.html'

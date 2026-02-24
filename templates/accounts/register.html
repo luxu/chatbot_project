@@ -6,9 +6,7 @@
 
 {% block content %}
     <a href="{% url 'index' %}" class="btn btn-primary">Voltar</a>
-    <p class="text-center mt-4">
-        <img src="{% static 'img/logo.png' %}" alt="logo">
-    </p>
+    <div class="jumbotron">
     <h1 class="text-center">Formulário de cadastro</h1>
     {% if messages %}
         <ul>
@@ -17,14 +15,46 @@
         {% endfor %}
         </ul>
     {% endif %}
-    <form action="{% url 'cadastrar' %}" method="post">
+    <form action="{% url 'cadastrar' %}" method="post" class="form">
         {% csrf_token %}
         <div class="row">
-            Usuário: <input name="username" type="text" class="form-control" placeholder="Digite seu usuário" value="{{ username }}">
-            E-mail: <input name="email" type="text" class="form-control" placeholder="Digite seu email" value="{{ email }}">
-            Senha: <input name="password" type="password" class="form-control" placeholder="Digite sua senha">
-            Confirme a senha: <input name="confirm_password" type="password" class="form-control" placeholder="Confirme sua senha">
-            <button class="btn btn-primary my-4" type="submit">Cadastrar</button>
+            <div class="mb-3">
+                <label class="form-label">Usuário</label>
+                {{ form.username }}
+                <div class="text-danger">{{ form.username.errors }}</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                {{ form.email }}
+                <div class="text-danger">{{ form.email.errors }}</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Senha</label>
+                <div class="position-relative">
+                    {{ form.password1 }}
+                    <i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3"
+                       style="cursor: pointer;"
+                       onclick="togglePassword('id_password1', this)">
+                    </i>
+                </div>
+                <div class="text-danger">{{ form.password1.errors }}</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Confirme a senha</label>
+                <div class="position-relative">
+                    {{ form.password2 }}
+                    <i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3"
+                       style="cursor: pointer;"
+                       onclick="togglePassword('id_password2', this)">
+                    </i>
+                    <div class="text-danger">{{ form.password2.errors }}</div>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Criar Conta</button>
         </div>
     </form>
+    </div>
 {% endblock content %}
+{% block js %}
+    <script src="{% static 'js/show_hide_field_password.js' %}"></script>
+{% endblock js %}

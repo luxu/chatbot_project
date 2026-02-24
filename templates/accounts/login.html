@@ -22,11 +22,25 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        <form action="{% url 'logar' %}" method="post">
+        <form action="{% url 'logar' %}" method="post" class="form-signin">
             {% csrf_token %}
-            <div class="row mt-4">
-                <input name="username" type="text" class="form-control mb-4" placeholder="Usuário">
-                <input name="password" type="password" class="form-control mb-4" placeholder="Senha">
+            <div class="row">
+                <div class="mb-4">
+                    <div class="position-relative">
+                        <input name="username" type="text" class="form-control" placeholder="Usuário">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <div class="position-relative">
+                        <input name="password" id="id_password" type="password" class="form-control" placeholder="Senha">
+                        <i class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3"
+                           style="cursor: pointer;"
+                           onclick="togglePassword('id_password', this)">
+                        </i>
+                    </div>
+                </div>
+
             </div>
             <div class="row">
                 <button class="btn btn-primary" type="submit">Confirmar</button>
@@ -34,3 +48,6 @@
         </form>
     </div>
 {% endblock content %}
+{% block js %}
+    <script src="{% static 'js/show_hide_field_password.js' %}"></script>
+{% endblock js %}

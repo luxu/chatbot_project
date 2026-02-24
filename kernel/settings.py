@@ -24,6 +24,7 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'widget_tweaks'
 ]
 
 THIRD_PARTY_APPS = []
